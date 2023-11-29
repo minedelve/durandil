@@ -14,6 +14,7 @@
   },
   "homepage": "https://minedelve.com/",
   "scripts": {
+    "install-sandbox": "npm create svelte@latest sandbox",
     "build": "vite dev"
   }
 }
