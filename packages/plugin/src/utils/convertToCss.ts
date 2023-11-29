@@ -1,6 +1,6 @@
 import { setNormalizeCss } from '../lib/normalize';
 
-function convertToCss() {
+export function convertToCss() {
 	let response = '';
 
 	// default
@@ -8,5 +8,3 @@ function convertToCss() {
 
 	return response;
 }
-
-export default convertToCss;
