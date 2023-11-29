@@ -14,9 +14,9 @@
   },
   "homepage": "https://minedelve.com/",
   "scripts": {
-    "install-sandbox": "npm create svelte@latest sandbox",
-    "build-plugin": "yarn --cwd packages/plugin build",
-    "build-core": "yarn --cwd packages/core build",
+    "install:sandbox": "npm create svelte@latest sandbox",
+    "build:plugin": "yarn --cwd packages/plugin build",
+    "build:core": "yarn --cwd packages/core build",
     "build": "yarn build-plugin && yarn build-core"
   }
 }
