@@ -25,6 +25,8 @@
 		"link:plugin": "yarn --cwd packages/plugin link",
 		"link:core": "yarn --cwd packages/core link",
 		"link:all": "yarn link:plugin && yarn link:core",
+		"publish:plugin": "yarn --cwd packages/plugin publish",
+		"publish:core": "yarn --cwd packages/core publish",
 		"dev": "yarn --cwd sandbox dev"
 	},
 	"devDependencies": {
