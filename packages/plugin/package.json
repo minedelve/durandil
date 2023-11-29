@@ -1,7 +1,7 @@
 {
-	"name": "@durandil/vite",
-	"version": "0.0.1",
-	"description": "Core plugin Durandil for Vite.js.",
+	"name": "@durandil/kit",
+	"version": "0.0.2",
+	"description": "Core plugin for Durandil.",
 	"author": "Nycolaide <laurent.grimaldi@mindelve.com>",
 	"license": "MIT",
 	"main": "dist/index.js",
@@ -9,7 +9,8 @@
 	"types": "dist/index.d.ts",
 	"type": "module",
 	"exports": {
-		".": "./dist/index.js"
+		".": "./dist/style.css",
+		"./vite": "./dist/index.js"
 	},
 	"repository": {
 		"type": "git",
