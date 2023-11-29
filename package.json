@@ -1,0 +1,19 @@
+{
+  "name": "durandil-monorepo",
+  "version": "0.0.1",
+  "description": "monorepo for durandil and friends",
+  "author": "nycolaide <laurent.grimaldi@minedelve.com>",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minedelve/durandil.git"
+  },
+  "bugs": {
+    "url": "https://github.com/minedelve/durandil/issues"
+  },
+  "homepage": "https://minedelve.com/",
+  "scripts": {
+    "build": "vite dev"
+  }
+}
