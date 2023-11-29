@@ -1,6 +1,6 @@
 export function pluginVite() {
 	return {
-		name: 'vite-plugin-manakit',
+		name: 'vite-plugin-durandil',
 		async configResolved() {
 			console.log('chaussette !');
 		}
