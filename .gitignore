@@ -2,6 +2,7 @@
 node_modules/
 yarn.lock
 yarn-error.log
+package-lock.json
 .svelte-kit
 
 # IDE related
@@ -29,3 +30,5 @@ dist
 sandbox
 
 tmp
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
