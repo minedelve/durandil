@@ -2,7 +2,7 @@
 	"name": "durandil-monorepo",
 	"version": "0.0.1",
 	"description": "monorepo for durandil and friends",
-	"author": "nycolaide <laurent.grimaldi@minedelve.com>",
+	"author": "Nycolaide <laurent.grimaldi@minedelve.com>",
 	"license": "MIT",
 	"private": true,
 	"repository": {
@@ -25,8 +25,8 @@
 		"link:plugin": "yarn --cwd packages/plugin link",
 		"link:core": "yarn --cwd packages/core link",
 		"link:all": "yarn link:plugin && yarn link:core",
-		"publish:plugin": "yarn --cwd packages/plugin publish",
-		"publish:core": "yarn --cwd packages/core publish",
+		"publish:plugin": "yarn --cwd packages/plugin publish --access public",
+		"publish:core": "yarn --cwd packages/core publish --access public",
 		"dev": "yarn --cwd sandbox dev"
 	},
 	"devDependencies": {

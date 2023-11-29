@@ -1,6 +1,19 @@
 {
 	"name": "@durandil/kit",
 	"version": "0.0.1",
+	"description": "A SvelteKit component library.",
+	"author": "Nycolaide <laurent.grimaldi@mindelve.com>",
+	"license": "MIT",
+	"types": "./src/lib/index.ts",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/minedelve/durandil.git"
+	},
+	"bugs": {
+		"url": "https://github.com/minedelve/durandil/issues"
+	},
+	"homepage": "https://minedelve.com/",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -66,7 +79,5 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
-	},
-	"types": "./src/lib/index.ts",
-	"type": "module"
+	}
 }
