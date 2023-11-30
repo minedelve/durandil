@@ -6,7 +6,6 @@ import generateCss from './utils/generateCss';
 import { defaultSet } from './presets/default';
 
 export function durandilkit({ ...props }) {
-	console.log('props', typeof props, props);
 	let data: Settings | undefined = undefined;
 	let minimify = false;
 
