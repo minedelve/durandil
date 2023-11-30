@@ -20,12 +20,22 @@ import setClassFlexShortland from '../lib/flex/flexShortland';
 import setClassFlexWrap from '../lib/flex/flexWrap';
 import setClassFloat from '../lib/float/float';
 import setClassOrder from '../lib/order';
+import setClassFontEmphasis from '../lib/text/fontEmphasis';
+import setClassTextAlign from '../lib/text/textAlign';
+import setClassTextDecoration from '../lib/text/textDecoration';
+import setClassTextOpacity from '../lib/text/textOpacity';
+import setClassTextTransform from '../lib/text/textTransform';
+import setClassTextTypography from '../lib/text/textTypography';
 
 export function convertToCss(config: any) {
 	let response = '';
 
 	// default
 	response += setNormalizeCss();
+	response += setClassFontEmphasis();
+	response += setClassTextDecoration();
+	response += setClassTextOpacity();
+	response += setClassTextTransform();
 
 	// no breakpoint
 	response += setTheme(config.theme);
@@ -57,6 +67,9 @@ export function convertToCss(config: any) {
 		response += setClassFlexJustify(key);
 		// display
 		response += setClassDisplay(key);
+		// text
+		response += setClassTextAlign(key);
+		response += setClassTextTypography(key);
 		if (key !== 'xs') response += '}\n\n';
 	}
 	return response;

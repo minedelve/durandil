@@ -33,5 +33,8 @@ export function setNormalizeCss() {
 	response += `box-sizing: inherit;\n`;
 	response += '}\n';
 
+	response += `.fill-height {\n`;
+	response += `height: 100% !important;\n`;
+	response += '}\n';
 	return response;
 }

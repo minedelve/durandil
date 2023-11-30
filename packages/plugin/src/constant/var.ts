@@ -121,3 +121,37 @@ export const display = {
 	flex: 'flex',
 	'inline-flex': 'inline-flex'
 };
+// fonts / text
+export const textAlign = {
+	left: 'left',
+	right: 'right',
+	center: 'center',
+	justify: 'justify',
+	start: 'start',
+	end: 'end'
+};
+export const textDecoration = {
+	none: 'none',
+	'line-through': 'line-through',
+	overline: 'overline',
+	underline: 'underline'
+};
+export const textOpacity = {
+	'high-emphasis': '1',
+	'medium-emphasis': '0.7',
+	disabled: '0.38'
+};
+export const textTransform = {
+	lowercase: 'lowercase',
+	uppercase: 'uppercase',
+	capitalize: 'capitalize',
+	none: 'none'
+};
+export const fontEmphasis = {
+	black: '900',
+	bold: '700',
+	medium: '500',
+	regular: '400',
+	light: '300',
+	thin: '100'
+};
