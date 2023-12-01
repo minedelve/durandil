@@ -1,18 +1,25 @@
-<div id="dal-application" {...$$props.class} {...$$props.style}>
-	<div class="dal-application--wrapper">
+<script lang="ts">
+	import { className } from '$lib/utils';
+
+	$: classHtml = className('app-container', $$props.class);
+	$: styleHtml = $$props.style;
+</script>
+
+<div class={classHtml} style={styleHtml}>
+	<div>
 		<!-- slot: default -->
 		<slot />
 	</div>
 </div>
 
 <style>
-	div#dal-application {
+	.app-container {
 		display: flex;
 		background: var(--dal-theme-background);
 		color: var(--dal-theme-text);
 	}
 
-	div.dal-application--wrapper {
+	.app-container > div {
 		backface-visibility: hidden;
 		display: flex;
 		flex-direction: column;
