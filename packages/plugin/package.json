@@ -1,6 +1,6 @@
 {
 	"name": "@durandil/kit",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Core plugin for Durandil.",
 	"author": "Nycolaide <laurent.grimaldi@mindelve.com>",
 	"license": "MIT",
