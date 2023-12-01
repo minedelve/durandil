@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { className } from '$lib/utils';
+	import { className } from '../../utils';
 
 	$: classHtml = className('app-container', $$props.class);
 	$: styleHtml = $$props.style;
