@@ -26,7 +26,7 @@
 		"link:core": "yarn --cwd packages/core link",
 		"link:all": "yarn link:plugin && yarn link:core",
 		"publish:plugin": "rm -rf packages/plugin/dist/style.css && yarn --cwd packages/plugin publish --access public",
-		"publish:core": "yarn --cwd packages/core prepublishOnly && yarn --cwd packages/core publish --access public",
+		"publish:core": "yarn build:core && yarn --cwd packages/core prepublishOnly && yarn --cwd packages/core publish --access public",
 		"dev": "yarn --cwd sandbox dev"
 	},
 	"devDependencies": {

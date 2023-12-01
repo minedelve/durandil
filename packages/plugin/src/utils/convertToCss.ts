@@ -26,6 +26,7 @@ import setClassTextDecoration from '../lib/text/textDecoration';
 import setClassTextOpacity from '../lib/text/textOpacity';
 import setClassTextTransform from '../lib/text/textTransform';
 import setClassTextTypography from '../lib/text/textTypography';
+import setClassElevation from '../lib/elevation';
 
 export function convertToCss(config: any) {
 	let response = '';
@@ -36,6 +37,7 @@ export function convertToCss(config: any) {
 	response += setClassTextDecoration();
 	response += setClassTextOpacity();
 	response += setClassTextTransform();
+	response += setClassElevation();
 
 	// no breakpoint
 	response += setTheme(config.theme);

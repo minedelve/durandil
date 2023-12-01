@@ -11,7 +11,7 @@ export function setNormalizeCss() {
 
 	response += `html {\n`;
 	response += `box-sizing: border-box;\n`;
-	response += `overflow-y: scroll;\n`;
+	// response += `overflow-y: scroll;\n`;
 	response += `word-break: normal;\n`;
 	response += `tab-size: 4;\n`;
 	response += '}\n';

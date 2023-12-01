@@ -9,6 +9,11 @@ export const cssSpacing = (
 	};\n`;
 };
 
-export const css = (key: string, value: string | number, subKey?: string) => {
-	return `${key}${subKey ? '-' + subKey : ''}: ${value} !important;\n`;
+export const css = (
+	key: string,
+	value: string | number,
+	subKey?: string,
+	noImportant?: boolean
+) => {
+	return `${key}${subKey ? '-' + subKey : ''}: ${value} ${noImportant ? '' : '!important'};\n`;
 };
