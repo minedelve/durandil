@@ -1,30 +1,54 @@
 <script lang="ts">
-	import { className } from '../../utils';
-	import type { ToolbarDensity, ToolbarRounded } from './types';
+	import { className, styleName } from '../../utils';
+	import type { ToolbarDensity, ToolbarElevated, ToolbarRounded } from './types';
 
+	// props
 	export let density: ToolbarDensity = 'default';
 	export let rounded: ToolbarRounded | undefined = undefined;
 	export let floating: boolean = false;
 	export let absolute: boolean = false;
+	export let fixed: boolean = false;
+	export let color: string | undefined = undefined;
+	export let background: string | undefined = undefined;
+	export let elevation: ToolbarElevated | undefined = undefined;
+	export let bordered: boolean = false;
+	export let height: number | string | undefined = undefined;
+	export let theme: 'dark' | 'light' | undefined = undefined;
 
 	$: classList = [
+		{ class: `toolbar`, value: true },
 		{ class: `density-${density}`, value: density },
 		{ class: `is-float`, value: floating },
 		{ class: `is-absolute`, value: absolute },
+		{ class: `is-fixed`, value: fixed },
+		{ class: `is-bordered`, value: bordered },
 		{ class: `rounded`, value: typeof rounded === 'boolean' && rounded },
-		{ class: `rounded-${rounded}`, value: typeof rounded !== 'boolean' && rounded }
+		{ class: `rounded-${rounded}`, value: typeof rounded !== 'boolean' && rounded },
+		{ class: `elevation-8`, value: typeof elevation === 'boolean' && elevation },
+		{ class: `elevation-${elevation}`, value: typeof elevation !== 'boolean' && elevation },
+		{ class: `${theme}`, value: theme }
 	];
+
+	$: styleList = [
+		{ property: `background`, value: background },
+		{ property: `color`, value: color },
+		{ property: `height`, value: height }
+	];
+
+	$: idHtml = $$props.id;
+	$: classHtml = className(undefined, $$props.class, classList);
+	$: styleHtml = styleName($$props.style, styleList);
 </script>
 
-<header class={className('dal-toolbar', $$props.class, classList)} {...$$props.style}>
-	<div class="dal-toolbar--content">
+<header id={idHtml} class={classHtml} style={styleHtml}>
+	<div class="toolbar-content">
 		<!-- slot: default -->
 		<slot />
 	</div>
 </header>
 
 <style>
-	.dal-toolbar {
+	.toolbar {
 		align-items: flex-start;
 		display: flex;
 		flex: none;
@@ -33,22 +57,12 @@
 		max-width: 100%;
 		overflow: hidden;
 		position: relative;
-		transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-		transition-property: height, width, transform, max-width, left, right, top, bottom, box-shadow;
 		width: 100%;
-		border-color: rgba(var(--dal-border-color), var(--dal-border-opacity));
-		border-style: solid;
-		border-width: 0;
-		box-shadow:
-			0px 0px 0px 0px var(--dal-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
-			0px 0px 0px 0px var(--dal-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
-			0px 0px 0px 0px var(--dal-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.12));
-		border-radius: 0;
-		background: var(--dal-theme-on-surface-variant);
-		color: var(--dal-theme-on-surface);
+		background: var(--dal-theme-background);
+		color: var(--dal-theme-text);
 	}
 
-	.dal-toolbar .dal-toolbar--content {
+	.toolbar-content {
 		align-items: center;
 		display: flex;
 		flex: 0 0 auto;
@@ -57,21 +71,30 @@
 		width: 100%;
 	}
 
-	.dal-toolbar.density-default .dal-toolbar--content {
+	.toolbar.density-default .toolbar-content {
 		height: 64px;
 	}
-	.dal-toolbar.density-comfortable .dal-toolbar--content {
+	.toolbar.density-comfortable .toolbar-content {
 		height: 56px;
 	}
-	.dal-toolbar.density-compact .dal-toolbar--content {
+	.toolbar.density-compact .toolbar-content {
 		height: 48px;
 	}
 
-	.dal-toolbar.is-float {
+	.toolbar.is-float {
 		display: inline-flex;
 	}
 
-	.dal-toolbar.is-absolute {
+	.toolbar.is-absolute {
 		position: absolute;
+	}
+
+	.toolbar.is-fixed {
+		position: fixed;
+	}
+
+	.toolbar.is-bordered {
+		border-width: thin;
+		border-style: solid;
 	}
 </style>
