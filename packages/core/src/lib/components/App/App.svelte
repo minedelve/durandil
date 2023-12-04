@@ -1,11 +1,23 @@
 <script lang="ts">
-	import { className } from '../../utils';
+	import { className, styleName } from '../../utils';
 
-	$: classHtml = className('app-container', $$props.class);
-	$: styleHtml = $$props.style;
+	// props
+	export let color: string | undefined = undefined;
+	export let background: string | undefined = undefined;
+
+	$: classList = [{ class: `app-container`, value: true }];
+
+	$: styleList = [
+		{ property: `background`, value: background },
+		{ property: `color`, value: color }
+	];
+
+	$: idHtml = $$props.id;
+	$: classHtml = className(undefined, $$props.class, classList);
+	$: styleHtml = styleName($$props.style, styleList);
 </script>
 
-<div class={classHtml} style={styleHtml}>
+<div id={idHtml} class={classHtml} style={styleHtml}>
 	<div>
 		<!-- slot: default -->
 		<slot />
@@ -24,9 +36,8 @@
 		display: flex;
 		flex-direction: column;
 		flex: 1 1 auto;
-		max-width: 100%;
+		max-width: 100vw;
 		min-height: 100vh;
-		min-height: 100dvh;
 		position: relative;
 	}
 </style>
