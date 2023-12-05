@@ -1,21 +1,32 @@
 <script lang="ts">
-	import { className } from '../../utils';
+	import { className, styleName } from '../../utils';
+
+	// props
 	export let inset: boolean = false;
 	export let vertical: boolean = false;
+	export let background: string | undefined = undefined;
 
 	$: classList = [
+		{ class: `divider`, value: true },
 		{ class: `is-inset`, value: inset },
 		{ class: `is-vertical`, value: vertical }
 	];
+
+	$: styleList = [{ property: `background`, value: background }];
+
+	$: idHtml = $$props.id;
+	$: classHtml = className(undefined, $$props.class, classList);
+	$: styleHtml = styleName($$props.style, styleList);
 </script>
 
-<hr class={className('dal-divider', $$props.class, classList)} {...$$props.style} />
+<hr id={idHtml} class={classHtml} style={styleHtml} />
 
 <style>
 	hr {
 		overflow: visible;
 	}
-	.dal-divider {
+
+	.divider {
 		display: block;
 		flex: 1 1 100%;
 		height: 0px;
@@ -26,7 +37,7 @@
 		border-width: thin 0 0 0;
 	}
 
-	.dal-divider.is-vertical {
+	.divider.is-vertical {
 		align-self: stretch;
 		border-width: 0 thin 0 0;
 		display: inline-flex;
@@ -38,7 +49,7 @@
 		width: 0px;
 	}
 
-	.dal-divider.is-inset:not(.is-vertical) {
+	.divider.is-inset:not(.is-vertical) {
 		max-width: calc(100% - 72px);
 		margin-inline-start: 72px;
 	}

@@ -27,6 +27,8 @@
 		border-style: solid;
 		border-width: 0;
 		border-radius: 4px;
+		background: var(--dal-theme-surface);
+		color: var(--dal-theme-on-surface);
 	}
 
 	.dal-card :global([class*='dal-card--text']) {
