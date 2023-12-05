@@ -1,19 +1,76 @@
 <script lang="ts">
-	import { className } from '../../utils';
+	import { className, styleName } from '../../utils';
+	import type { CardElevated, CardRounded, CardTarget } from './types';
 
-	export let noGutters: boolean = false;
+	// props
+	export let color: string | undefined = undefined;
+	export let background: string | undefined = undefined;
+	export let elevation: CardElevated | undefined = true;
+	export let width: string | number | undefined = undefined;
+	export let height: string | number | undefined = undefined;
+	export let minWidth: string | number | undefined = undefined;
+	export let maxWidth: string | number | undefined = undefined;
+	export let minHeight: string | number | undefined = undefined;
+	export let maxHeight: string | number | undefined = undefined;
+	export let rounded: CardRounded | undefined = undefined;
+	export let href: string | undefined = undefined;
+	export let target: CardTarget = undefined;
+	export let role: 'button' | undefined = undefined;
+	export let theme: 'dark' | 'light' | undefined = undefined;
 
-	$: classList = [{ class: `no-gutters`, value: noGutters }];
-	$: styleList = $$props.style;
+	$: classList = [
+		{ class: `card`, value: true },
+		{ class: `elevation-2`, value: typeof elevation === 'boolean' && elevation },
+		{ class: `elevation-${elevation}`, value: typeof elevation !== 'boolean' && elevation },
+		{ class: `rounded`, value: typeof rounded === 'boolean' && rounded },
+		{ class: `rounded-${rounded}`, value: typeof rounded !== 'boolean' && rounded },
+		{ class: `${theme}`, value: theme }
+	];
+
+	$: styleList = [
+		{ property: `background`, value: background },
+		{ property: `color`, value: color },
+		{ property: `width`, value: width },
+		{ property: `height`, value: height },
+		{ property: `min-width`, value: minWidth },
+		{ property: `max-width`, value: maxWidth },
+		{ property: `min-height`, value: minHeight },
+		{ property: `max-height`, value: maxHeight }
+	];
+
+	$: idHtml = $$props.id;
+	$: classHtml = className(undefined, $$props.class, classList);
+	$: styleHtml = styleName($$props.style, styleList);
 </script>
 
-<div class={className('dal-card', $$props.class, classList)} style={styleList}>
-	<!-- slot: default -->
-	<slot />
-</div>
+{#if href}
+	<a {href} {target}>
+		<div id={idHtml} class={classHtml} style={styleHtml}>
+			<div>
+				<!-- slot: default -->
+				<slot />
+			</div>
+		</div>
+	</a>
+{:else}
+	<div id={idHtml} class={classHtml} style={styleHtml} {role} on:click>
+		<div>
+			<!-- slot: default -->
+			<slot />
+		</div>
+	</div>
+{/if}
 
 <style>
-	.dal-card {
+	a {
+		text-decoration: none;
+	}
+
+	.card[role='button'] {
+		cursor: pointer;
+	}
+
+	.card {
 		display: block;
 		overflow: hidden;
 		overflow-wrap: break-word;
@@ -31,7 +88,7 @@
 		color: var(--dal-theme-on-surface);
 	}
 
-	.dal-card :global([class*='dal-card--text']) {
+	.card :global([class*='card-text']) {
 		line-height: 1.25rem;
 	}
 </style>
