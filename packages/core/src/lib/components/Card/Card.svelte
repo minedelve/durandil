@@ -20,7 +20,6 @@
 	export let disabled: boolean = false;
 	export let loading: boolean = false;
 	export let active: boolean = false;
-	export let click: boolean = false;
 
 	$: isDisabled = loading ? loading : disabled;
 	$: isHover = false;
