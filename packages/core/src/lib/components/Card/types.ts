@@ -1,5 +1,6 @@
 export type CardRounded = '0' | 'sm' | 'lg' | 'xl' | 'xxl' | 'pill' | boolean | string;
 export type CardTarget = '_blank' | '_parent' | '_self' | '_top' | undefined;
+export type CardDensity = 'compact' | 'comfortable' | 'default';
 export type CardElevated =
 	| '0'
 	| '1'

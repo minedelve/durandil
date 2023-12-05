@@ -4,7 +4,7 @@
 	export let color: string | undefined = undefined;
 	export let background: string | undefined = undefined;
 
-	$: classList = [{ class: `card-text`, value: true }];
+	$: classList = [{ class: `card-subtitle`, value: true }];
 
 	$: styleList = [
 		{ property: `background`, value: background },
@@ -22,12 +22,17 @@
 </div>
 
 <style>
-	.card-text {
-		flex: 1 1 auto;
+	.card-subtitle {
+		display: block;
+		flex: none;
 		font-size: 0.875rem;
 		font-weight: 400;
 		letter-spacing: 0.0178571429em;
-		padding: 1rem;
+		opacity: 0.6;
+		overflow: hidden;
+		padding: 0 1rem;
+		text-overflow: ellipsis;
 		text-transform: none;
+		white-space: nowrap;
 	}
 </style>

@@ -1,32 +1,47 @@
 <script lang="ts">
-	import { className } from '../../utils';
+	import { className, styleName } from '../../utils';
+	import type { CardDensity } from './types';
 
-	export let noGutters: boolean = false;
+	export let color: string | undefined = undefined;
+	export let background: string | undefined = undefined;
+	export let density: CardDensity = 'default';
 
-	$: classList = [{ class: `no-gutters`, value: noGutters }];
+	$: classList = [
+		{ class: `card-item`, value: true },
+		{ class: `density-${density}`, value: density }
+	];
+
+	$: styleList = [
+		{ property: `background`, value: background },
+		{ property: `color`, value: color }
+	];
+
+	$: idHtml = $$props.id;
+	$: classHtml = className(undefined, $$props.class, classList);
+	$: styleHtml = styleName($$props.style, styleList);
 </script>
 
-<div class={className('dal-card-item', $$props.class, classList)} {...$$props.style}>
+<div id={idHtml} class={classHtml} style={styleHtml}>
 	<!-- slot: prepend -->
 	{#if $$slots.prepend}
-		<div class="dal-card-item--prepend">
+		<div class="card-item--prepend">
 			<slot name="prepend" />
 		</div>
 	{/if}
 	<!-- slot: default -->
-	<div class="dal-card-item--content">
+	<div class="card-item--content">
 		<slot />
 	</div>
 	<!-- slot: append -->
 	{#if $$slots.append}
-		<div class="dal-card-item--append">
+		<div class="card-item--append">
 			<slot name="append" />
 		</div>
 	{/if}
 </div>
 
 <style>
-	.dal-card-item {
+	.card-item {
 		align-items: center;
 		display: grid;
 		flex: none;
@@ -35,13 +50,27 @@
 		padding: 0.625rem 1rem;
 	}
 
-	.dal-card-item--prepend {
+	.card-item--prepend {
 		grid-area: prepend;
 		padding-inline-end: 1rem;
 	}
 
-	.dal-card-item--append {
+	.card-item--append {
 		grid-area: append;
 		padding-inline-start: 1rem;
+	}
+
+	.card-item--content {
+		align-self: center;
+		grid-area: content;
+		overflow: hidden;
+	}
+
+	.card-item--content :global([class*='card-title']) {
+		padding: 0;
+	}
+
+	.card-item--content :global([class*='card-subtitle']) {
+		padding: 0 0 0.25rem;
 	}
 </style>

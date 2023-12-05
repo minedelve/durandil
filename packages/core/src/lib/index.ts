@@ -15,5 +15,8 @@ export { default as Footer } from './components/Footer/Footer.svelte';
 export { default as Card } from './components/Card/Card.svelte';
 export { default as CardText } from './components/Card/CardText.svelte';
 export { default as CardItem } from './components/Card/CardItem.svelte';
+export { default as CardTitle } from './components/Card/CardTitle.svelte';
+export { default as CardSubtitle } from './components/Card/CardSubtitle.svelte';
+export { default as CardActions } from './components/Card/CardActions.svelte';
 // overlay
 export { default as Dialog } from './components/Dialog/Dialog.svelte';
