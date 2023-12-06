@@ -287,7 +287,7 @@
 		.dal-col.offset-md-1 {
 			margin-inline-start: calc((100% / 12) * 1);
 		}
-		.dal-col.offset-sm-2 {
+		.dal-col.offset-md-2 {
 			margin-inline-start: calc((100% / 12) * 2);
 		}
 		.dal-col.offset-md-3 {

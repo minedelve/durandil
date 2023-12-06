@@ -11,7 +11,7 @@ function setClassFontEmphasis() {
 	}
 
 	response += `.font-italic {\n`;
-	response += css('font-style', 'italic !important');
+	response += css('font-style', 'italic');
 	response += '}\n';
 	return response;
 }
